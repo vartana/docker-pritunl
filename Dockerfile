@@ -3,14 +3,17 @@
 
 FROM ubuntu:14.04
 
-MAINTAINER Praneeth Bodduluri <lifeeth@resin.io>
+MAINTAINER Vartan Arabyan <vartana@gmail.com>
 
-RUN apt-get update -q
-RUN apt-get install -y software-properties-common python-software-properties 
+#RUN apt-get update -q
+#RUN apt-get install -y software-properties-common python-software-properties 
 
-RUN add-apt-repository ppa:pritunl/ppa
+RUN deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse > deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse
+RUN deb http://repo.pritunl.com/stable/apt trusty main > nano /etc/apt/sources.list.d/pritunl.list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7F0CEB10
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv CF8E292A
 RUN apt-get update -q
-RUN apt-get install -y pritunl
+RUN apt-get install -y pritunl mongodb-org
 
 ADD entry.sh /bin/entry.sh
 
