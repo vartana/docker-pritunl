@@ -11,8 +11,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7F0CEB10
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv CF8E292A
 RUN apt-get update -q
 RUN apt-get install -y pritunl mongodb-org
-RUN systemctl start mongod pritunl
-RUN systemctl enable mongod pritunl
 
 #ADD entry.sh /bin/entry.sh
 CMD ["systemctl", "start", "mongod", "pritunl"]
