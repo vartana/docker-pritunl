@@ -17,6 +17,10 @@ RUN apt-get install -y pritunl mongodb-org
 
 ADD entry.sh /bin/entry.sh
 
+EXPOSE 9700
+EXPOSE 1194
+EXPOSE 11194
+
 ENTRYPOINT ["/bin/entry.sh"]
 
 CMD ["/usr/bin/tail", "-f","/var/log/pritunl.log"]
