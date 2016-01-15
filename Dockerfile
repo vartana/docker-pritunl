@@ -5,8 +5,8 @@ FROM ubuntu:14.04
 
 MAINTAINER Vartan Arabyan <vartana@gmail.com>
 
-#RUN apt-get update -q
-#RUN apt-get install -y software-properties-common python-software-properties 
+RUN apt-get update -q
+RUN apt-get install -y software-properties-common python-software-properties 
 
 RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-3.0.list
 RUN echo "deb http://repo.pritunl.com/stable/apt trusty main" > /etc/apt/sources.list.d/pritunl.list
