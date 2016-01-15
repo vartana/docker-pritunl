@@ -14,7 +14,9 @@ RUN apt-get install -y pritunl mongodb-org
 RUN systemctl start mongod pritunl
 RUN systemctl enable mongod pritunl
 
-ADD entry.sh /bin/entry.sh
+#ADD entry.sh /bin/entry.sh
+CMD ["systemctl", "start", "mongod", "pritunl"]
+CMD ["systemctl", "enable", "mongod", "pritunl"]
 
 EXPOSE 9700
 EXPOSE 1194
